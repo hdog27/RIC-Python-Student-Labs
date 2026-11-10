@@ -1,26 +1,19 @@
 # Annotated resources
 
-Access reviewed November 10, 2026. Core learning runs offline. These are optional explanations and instructor preparation, not a replacement for labs. Open only the relevant section; do not assign an entire tutorial or full lecture as background homework. Pages may change, so instructors should recheck them before teaching.
+Reviewed November 10, 2026. Use one short section or instructor-selected excerpt at the point of need. The course source, examples, fixtures and tests work offline. These links support explanations; they do not replace the daily investigation.
 
-| Resource | When and how to use | Why it helps / limits |
+| Resource | When and how | Why / limitation |
 | --- | --- | --- |
-| [Python downloads](https://www.python.org/downloads/) | Before the course, instructor arranges a school-approved Python installation | Official distribution source. Use an approved supported Python 3 release at least 3.11; do not install during the main lesson |
-| [Python 3.11 introduction](https://docs.python.org/3.11/tutorial/introduction.html) | Day 1, read a small numbers/strings example for 5 minutes, then predict and run a variation | Primary explanation of basic expressions. Instructor mediates dense documentation for first-time programmers |
-| [Python control flow](https://docs.python.org/3.11/tutorial/controlflow.html) | Day 1 if/else; Day 2 for loops and function definitions. Use one example per concept | Matches the core syntax. Skip match and advanced argument forms |
-| [Python data structures](https://docs.python.org/3.11/tutorial/datastructures.html) | Day 2, consult lists and dictionaries while modeling equipment records | Helps students select structures and look up append/key access. Comprehensions are optional |
-| [Python input/output](https://docs.python.org/3.11/tutorial/inputoutput.html) | Day 3, focus on files, text encoding and JSON examples | Connects memory to persistent text. Do a local round-trip immediately afterward |
-| [JSON module](https://docs.python.org/3.11/library/json.html) | Day 3, look up dumps/loads and JSONDecodeError during malformed-fixture investigation | Defines the actual encoder/decoder behavior. Parsing alone does not validate our task schema |
-| [Pathlib](https://docs.python.org/3.11/library/pathlib.html) | Day 3 instructor preparation and optional student reference for read_text/write_text/replace | Cross-platform path tools. Limit student reading to the methods used in the project |
-| [Errors and exceptions](https://docs.python.org/3.11/tutorial/errors.html) | Days 3–4, compare a SyntaxError and a ValueError before debugging | Supports specific exception handling and reading tracebacks. Avoid swallowing all errors |
-| [Unittest basics](https://docs.python.org/3.11/library/unittest.html#basic-example) | Day 4, read a small TestCase example, then add one original test | Standard-library testing without installation. Focus on assertEqual/assertRaises and discovery |
-| [CS50 Python, Week 0: Functions, Variables](https://cs50.harvard.edu/python/weeks/0/) | Optional Day 1 video excerpt, up to 8 minutes on variables/input or string methods, selected during instructor rehearsal | Official Harvard lecture page includes video and notes. Pause for a prediction and a local experiment. Exact excerpt is instructor-selected, not a claimed fixed timestamp. Notes/local demo are the fallback |
-| [CS50 Python, Week 5: Unit Tests](https://cs50.harvard.edu/python/weeks/5/) | Optional Day 4 conceptual excerpt, up to 8 minutes on why tests reveal mistakes | Official explanation with video/notes. Some examples use pytest; our unit uses unittest and does not require pytest. Instructor explicitly translates the concept rather than adding another framework |
-| [GitHub Hello World](https://docs.github.com/en/get-started/using-github/hello-world) | Optional Day 5 extension after the app works. Walk through a small repository and commit | Official account/repository workflow. Students may submit an archive instead of creating accounts or publishing personal information |
+| [Python introduction](https://docs.python.org/3/tutorial/introduction.html) | Day 1, numbers/strings and assignment, then trace a variation | Primary reference. Ignore newer optional syntax outside our supplied examples |
+| [Python control flow](https://docs.python.org/3/tutorial/controlflow.html) | Day 2, for, range, break/continue; Day 3 function definitions | Read just the relevant construct, then fill a trace table |
+| [Python modules](https://docs.python.org/3/tutorial/modules.html) | Day 3, import forms and main guard | Explains module execution and name binding; imports do not install packages |
+| [Python subprocess](https://docs.python.org/3/library/subprocess.html) | Day 3, run and CompletedProcess, timeout and check | Official options for the command bridge. The supplied code uses APIs available in Python 3.9 |
+| [Red Hat Python guidance](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/installing_and_using_dynamic_programming_languages/assembly_introduction-to-python_installing-and-using-dynamic-programming-languages) | Instructor prep and Day 3 interpreter check | RHEL 9 has a vendor-maintained default interpreter and optional versions. Do not replace system Python to match personal-computer advice |
+| [RHEL basic system settings](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/htmlsingle/configuring_basic_system_settings/index) | Day 3, service-state and journal inspection sections only | Official RHEL command context. Use local man pages for exact installed behavior. We inspect rather than modify services |
+| [CS50 Python loops video and notes](https://cs50.harvard.edu/python/weeks/2/) | Optional Day 2, at most eight instructor-selected minutes on for/while, then a local trace | Official course resource with video/notes. No claimed fixed timestamp, whole-lecture homework or certificate requirement |
+| [Python unittest](https://docs.python.org/3/library/unittest.html#basic-example) | Day 4, read one assertion and add one counterexample | Standard-library tests require no installation. Start with provided patterns |
+| [GitHub Hello World](https://docs.github.com/en/get-started/using-github/hello-world) | Optional Day 5 publication after clean-copy success | Public accounts are optional; an archive is a full submission route |
 
-## Source and reuse notes
+Use `man systemctl`, `man journalctl`, `man df`, and `man free` on the assigned VM for exact command options. Prefer a short local demonstration or the notes if a video is blocked or inaccessible. Link to outside videos instead of redistributing them. Provide captions/text where available.
 
-The curriculum exercises, task data, and project code are original teaching materials. References explain Python and GitHub behavior. We link to third-party videos rather than embedding or redistributing them. Use the provider's captions, transcripts, or notes when available and verify classroom accessibility. No certificate or affiliation with Python, GitHub, Harvard, or CS50 is implied.
-
-## Reading method
-
-Identify one question first. Find the relevant example, predict its result, run it in a scratch file, and explain how it relates to your project. Record sources you actually used in your project's credits.
+All task data and review drafts are original fictional teaching examples. They do not represent live server observations or a specific AI product's actual transcript. No employment forecast or certification claim is implied.

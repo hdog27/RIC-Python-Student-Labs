@@ -1,42 +1,38 @@
-# Day 2: Data and functions
+# Day 2: For loops and while loops
 
-**Learning target:** Represent several tasks, implement add/list/complete functions, and explain why IDs are different from list positions.
+Goal: **Trace what repeats, count executions, and justify how a loop ends.**
 
-**You need:** your editor, Python, a writable project folder, and today's workbook page. The guided lab takes 50 minutes plus a 15-minute share-out. Project work takes a separate 180 minutes. Pairing is encouraged; change driver every 15 minutes.
+Vocabulary: lists, dictionary lookups, loop variables, iteration, range, conditions, counters, break and continue.
 
-## Predict before running
+## Read first
 
-A task has ID 7 and sits at index 0. Which value should a user type to complete it? What happens if you use tasks[7]?
+Read these sections of the Python reading guide: Lists, dictionaries, and indexing; For loops; While loops. The guide is in `03 - Student Worksheets and Packet`. Today's example is `02_for_loop.py and 03_while_loop.py`. Short examples are in this folder's examples subfolder. Keep the review workbook open for predictions, trace tables, and evidence.
 
-Write your prediction and the reason. Run a small experiment to check it.
+## Guided investigation
 
-## Guided lab: Organize an equipment checkout list
+1. Open examples/02_for_loop.py. Label the list, one loop variable, repeated body, and first statement after the loop.
+2. Predict output for three services, then an empty list. Fill one trace-table row per pass before running. Explain why service is an ordinary name, not a keyword.
+3. Open examples/03_while_loop.py. Trace attempt before the condition, the output, and the updated value. Count condition checks as well as body executions.
+4. Review AI case B on paper. Find why it cannot reach a stopping value. Propose a bounded repair and test only the repaired copy. Keep Ctrl+C as recovery knowledge, not the lesson method.
+5. Use a paper variation with continue before the counter update. Explain why it can break progress. Compare break with continue without executing an unbounded loop.
+6. Find the for loops in build_report and main. Draw how each command-result dictionary becomes one output row. Count service queries for the supplied SERVICES list.
 
-1. Create `day2_equipment.py`. Represent three fictional equipment items as dictionaries with id, name, and checked_out fields. Store them in a list.
-2. Write `available_names(items)` that returns a new list of the names whose checked_out value is False. Keep printing outside the function.
-3. Trace the loop by hand with an empty list and with all items checked out.
-4. Write a function that finds an item by ID and changes its checked_out value. Raise ValueError for an unknown ID.
-5. Try IDs 1, 7, and 99 on a list with IDs 1 and 7. Check that an ID is not being used as an index.
-6. Swap driver/navigator roles after 15 minutes. Have your partner explain one return value and one side effect.
+Give a reason for each prediction. Run only the supplied working examples or your bounded repair. Compare expected and actual output. Partners switch driver/navigator roles every 15 minutes. The instructor guide schedules demonstrations, paired practice, discussion and this investigation across 180 guided minutes.
 
-## Project work
+## Project and independent work: 180 minutes
 
-Open your tracker.py copy. Implement `add_task`, `list_tasks`, and `complete_task` to the contracts in the project specification. Use an empty list in the Python shell to exercise them. Use a temporary in-memory script if the full menu still needs Day 3 storage. Attempt the matching public tests by name.
+Produce for/while trace tables, repair case B in a scratch file, and demonstrate zero, one, and three iterations. Explain which loop fits a known list of services. Annotate the app loop without replacing it with more compact syntax.
 
-Work in three 60-minute blocks: build the core milestone, test it with a peer, then improve and document it. Before adding an extension, demonstrate the required milestone to your instructor.
+Use 60 minutes to trace/review the assigned region, 60 minutes to test a small change or interpretation, and 45 minutes to document evidence. Use the final 15 minutes to save a snapshot and submit. On Day 5, reserve the last hour for demonstrations and submission instead. Small tested edits are expected; writing an application from an empty file is not required.
 
-## Checkpoint and submission
+## Submit and explain
 
-Submit equipment exercise, a function trace, three tracker functions, and add/list/complete evidence using IDs 1 and 7. Include exact commands and inputs so someone else can repeat your result. A screenshot helps but does not replace your source files.
+Submit your workbook page, trace or annotated region, exact inputs/commands, and expected/actual evidence. Describe your contribution independently, even if paired. Record an approval decision as accept, edit, or reject with a reason. In sample mode say simulated.
 
-## Exit ticket
+Exit ticket: What does for repeat over? What value changes to stop your while loop?
 
-How does a function returning a string differ from printing one? Why should task IDs stay stable?
+Support: Use three index cards as list items and a separate counter card for while. Keep indentation visible. Allow a verbal trace.
 
-## Need a hint?
+Optional challenge: Explain why a nested loop over the same service list can multiply work. Count passes for lists of length 3 and 6.
 
-State the smallest input that fails. Locate the matching concept in the Python reference sheet. Write the expected result before asking for a code suggestion. Ask your instructor for a targeted hint if you remain stuck after ten minutes.
-
-## Extension
-
-Implement case-insensitive title search as a separate function without changing the required interfaces.
+[Back to Start Here](../START-HERE.md)

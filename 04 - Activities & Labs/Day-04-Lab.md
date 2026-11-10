@@ -1,42 +1,38 @@
-# Day 4: Debugging and tests
+# Day 4: Review AI drafts and unnecessary work
 
-**Learning target:** Use repeatable tests to diagnose defects and verify an integrated command-line workflow.
+Goal: **Support an accept, edit, or reject decision with a trace and repeatable evidence.**
 
-**You need:** your editor, Python, a writable project folder, and today's workbook page. The guided lab takes 50 minutes plus a 15-minute share-out. Project work takes a separate 180 minutes. Pairing is encouraged; change driver every 15 minutes.
+Vocabulary: counterexamples, equality versus membership, bounded loops, command handling, repeated calls, tests, approval decisions.
 
-## Predict before running
+## Read first
 
-A program works for three tasks. Does that tell us what it does for zero tasks or an unknown ID?
+Read these sections of the Python reading guide: AI-assisted reading and review. The guide is in `03 - Student Worksheets and Packet`. Today's example is `AI-Review-Cases.md`. Short examples are in this folder's examples subfolder. Keep the review workbook open for predictions, trace tables, and evidence.
 
-Write your prediction and the reason. Run a small experiment to check it.
+## Guided investigation
 
-## Guided lab: Repair a broken function
+1. Review case A before executing any repair. Predict the result for inactive. Explain why a plausible English explanation of the code can still be wrong.
+2. Specify expected outcomes for active, inactive, failed, missing output, and command errors. Trace which evidence the draft ignores. Repair only a scratch copy and run counterexamples.
+3. Review case C. Count child-process calls for two services. Identify the missing timeout, shell interpretation, discarded exit code, and duplicated calls.
+4. Replace real querying with a fake function that records calls. Compare a repeated-read draft with a once-per-unit version. Keep reported results equivalent for fixed fake inputs and report exact call counts.
+5. Optionally ask an AI assistant to explain a small snippet or suggest tests. Record a suggestion and a reason to accept, edit, or reject it. Without an account, review the supplied written draft with a peer.
+6. Run the supplied tests and your new cases. Explain what each test does and what it cannot prove. A short function or passing suite alone is not an approval argument.
 
-1. Copy `broken_summary.py` into your workspace. Read it before running it.
-2. Run its embedded tests. Record expected versus actual results for zero tasks and a mixture of open and completed tasks.
-3. State a hypothesis about the defect. Change one line at a time and rerun the failing test.
-4. Add a new case where every task is complete and another where none is complete. Keep these regression tests.
-5. Open the test_tracker.py file in your app folder. Run one named test, then the full suite.
-6. Ask a partner to explain a failure message without looking at your implementation. Decide whether the error belongs to the code, the test, or the documented requirement.
+Give a reason for each prediction. Run only the supplied working examples or your bounded repair. Compare expected and actual output. Partners switch driver/navigator roles every 15 minutes. The instructor guide schedules demonstrations, paired practice, discussion and this investigation across 180 guided minutes.
 
-## Project work
+## Project and independent work: 180 minutes
 
-Finish the CLI integration and add at least four original tests beyond the supplied acceptance suite. Include an edge case, invalid input, persistence, and a case tied to your chosen extension or a bug you found. Run the manual acceptance checklist with a partner. Keep a debugging log.
+Complete a review memo for cases A–C, a small repaired example, and a measured command-call reduction. Add at least three original tests total: a boundary or counterexample, an error path, and an efficiency/behavior check. Record attributions and unresolved assumptions.
 
-Work in three 60-minute blocks: build the core milestone, test it with a peer, then improve and document it. Before adding an extension, demonstrate the required milestone to your instructor.
+Use 60 minutes to trace/review the assigned region, 60 minutes to test a small change or interpretation, and 45 minutes to document evidence. Use the final 15 minutes to save a snapshot and submit. On Day 5, reserve the last hour for demonstrations and submission instead. Small tested edits are expected; writing an application from an empty file is not required.
 
-## Checkpoint and submission
+## Submit and explain
 
-Submit fixed summary, regression cases, four original tests, full test output, and a debugging log with a reproduced defect. Include exact commands and inputs so someone else can repeat your result. A screenshot helps but does not replace your source files.
+Submit your workbook page, trace or annotated region, exact inputs/commands, and expected/actual evidence. Describe your contribution independently, even if paired. Record an approval decision as accept, edit, or reject with a reason. In sample mode say simulated.
 
-## Exit ticket
+Exit ticket: What counterexample changed your review decision? Which unnecessary work did you remove, and how did you measure it?
 
-Why can a passing test suite still miss a bug? What makes a regression test useful?
+Support: Give a fixed fake return value and a list that records calls. Count operations before introducing timing or mocking syntax. Use ordinary loops when clearer.
 
-## Need a hint?
+Optional challenge: Compare a list scan with a set-membership check, preserving order requirements. Explain when the optimization adds complexity without useful benefit.
 
-State the smallest input that fails. Locate the matching concept in the Python reference sheet. Write the expected result before asking for a code suggestion. Ask your instructor for a targeted hint if you remain stuck after ten minutes.
-
-## Extension
-
-Write a subprocess smoke test that sends menu input to a temporary copy of the app and checks the saved file.
+[Back to Start Here](../START-HERE.md)

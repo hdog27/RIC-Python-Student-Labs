@@ -1,107 +1,88 @@
-# Day 5: Release and demonstration
+# Day 5: Review and Demonstration
 
-Student-readable slide transcript. Full lab instructions are in the matching daily lab.
+Slide transcript. Follow the matching lesson from Start Here.
 
-## Slide 1: Release and demonstration
+## Slide 1: Review and demonstration
 
 Day 5
-A project you can run and explain
+Work another person can run and understand
 
----
+## Slide 2: The reviewed package
 
-## Slide 2: Today’s deliverable
+Working source and fictional sample data.
+Your annotations, repairs, and review memo.
+Tests and a reproducible report.
 
-Source and tests.
-A README a new user can follow.
-A short demonstration with evidence.
+Discuss or try: Which parts did you review or change yourself?
 
-**Discuss or try:** What does your fictional user need to know first?
+## Slide 3: A clean-copy review
 
----
-
-## Slide 3: A clean-copy check
-
-1. Project snapshot
+1. Fresh project copy
 2. Reviewer follows README
-3. Observed results and fixes
+3. Evidence, feedback, and recheck
 
-**Discuss or try:** What should the author avoid explaining aloud during the check?
+Discuss or try: Can the reviewer proceed for ten minutes without oral coaching?
 
----
+## Slide 4: The explanation check
 
-## Slide 4: A usable README
-
-| Reader’s question | Document it |
+| Construct | What you should explain |
 | --- | --- |
-| What is this? | User and purpose |
-| How do I run it? | Version and commands |
-| How do I check it? | Tests and sample usage |
-| What should I expect? | Data, errors, limitations |
+| Variable | Value and type |
+| For / while | Repeated block and stopping reason |
+| Import / function call | Available name and execution |
+| Command result | Output, status and uncertainty |
 
-**Discuss or try:** Which missing detail could block a new user?
+Discuss or try: Explain one new input instead of reading lines aloud.
 
----
+## Slide 5: An honest report
 
-## Slide 5: Feedback with evidence
+Source: simulated or live.
+Service observations and retained errors.
+Limits of what the result can establish.
 
-Input: complete task ID 99.
-Observed: the app exits with a traceback.
-Expected: a useful message and a running menu.
-
-**Discuss or try:** Why is this more useful than “the app is broken”?
-
----
+Discuss or try: Does a successful report command prove every service is healthy?
 
 ## Slide 6: The three-minute demo
 
 | Time | Evidence |
 | --- | --- |
-| 0:00–0:25 | User and problem |
-| 0:25–1:15 | Add, list, complete |
-| 1:15–1:45 | Restart and persistence |
-| 1:45–2:20 | Invalid input and a test |
-| 2:20–3:00 | Bug, limitation, contribution |
+| First 30 seconds | User need and data source |
+| Next 60 seconds | Code trace and command result |
+| Next 60 seconds | Repair, test, and query counts |
+| Final 30 seconds | Limitations and contribution |
 
-**Discuss or try:** Rehearse once with a partner.
-
----
+Discuss or try: Rehearse with a partner using a clean copy.
 
 ## Slide 7: A defensible portfolio claim
 
-Built a Python CLI task tracker with JSON persistence, input validation, and automated tests.
+Reviewed a Python Linux service-reporting script, repaired draft logic, and tested a reduction in repeated command calls.
 
-**Discuss or try:** Which part did you build, and what evidence supports it?
+Discuss or try: What evidence supports each part of your claim?
 
----
+## Slide 8: Peer feedback with evidence
 
-## Slide 8: Lab: peer review
+Exact command and input.
+Expected versus actual behavior.
+One justified next action.
 
-Follow the README in a fresh copy.
-Run automated and manual checks.
-Return one specific improvement.
-
-**Discuss or try:** Record what changed after the author received your feedback.
-
----
+Discuss or try: Could the author reproduce your feedback?
 
 ## Slide 9: Final submission
 
-App, tests, README, and evidence.
-Workbook, debugging log, and reflection.
-Repository link or archive.
+Reviewed app, README, and source credits.
+Walkthrough, memo, repairs, and tests.
+Report, workbook, and demonstration.
 
-**Discuss or try:** Does your final copy include everything a reviewer needs?
+Discuss or try: Repository link or archive: either route is valid.
 
----
+## Slide 10: Your next review
 
-## Slide 10: Your next step
+Explain the important behavior.
+Challenge an assumption.
+Keep evidence for the decision.
 
-Explain one decision.
-Name one limitation.
-Choose one improvement you could test.
+Discuss or try: Which suggestion did you question, and why?
 
-**Discuss or try:** What can you now build and explain that you could not on Monday?
-
----
-
-Concept reference: https://docs.github.com/en/get-started/using-github/hello-world
+Concept references:
+https://docs.python.org/3/library/unittest.html#basic-example
+https://docs.github.com/en/get-started/using-github/hello-world

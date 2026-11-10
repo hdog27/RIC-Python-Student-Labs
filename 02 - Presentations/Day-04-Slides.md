@@ -1,109 +1,90 @@
-# Day 4: Debugging and tests
+# Day 4: AI Review and Efficiency
 
-Student-readable slide transcript. Full lab instructions are in the matching daily lab.
+Slide transcript. Follow the matching lesson from Start Here.
 
-## Slide 1: Debugging and tests
+## Slide 1: AI review and efficiency
 
 Day 4
-Evidence for a working app
+A decision supported by counterexamples
 
----
+## Slide 2: An approval decision
 
-## Slide 2: Today’s build
+Intent: what should happen?
+Trace: what actually happens?
+Evidence: why accept, edit, or reject?
 
-A complete menu flow.
-Repeatable tests.
-A debugging log someone else can reproduce.
+Discuss or try: Which assumption would you test first?
 
-**Discuss or try:** What does “it works” need as evidence?
+## Slide 3: A plausible-looking mistake
 
----
-
-## Slide 3: A useful test case
-
-| Part | Example |
-| --- | --- |
-| Setup | Empty task list |
-| Action | Add a whitespace-only title |
-| Expected | ValueError, list unchanged |
-
-**Discuss or try:** What would a vague “test bad input” miss?
-
----
-
-## Slide 4: An automated check
-
-```python
-import unittest
-
-class DoubleTests(unittest.TestCase):
-    def test_zero(self):
-        self.assertEqual(double(0), 0)
+```text
+state = "inactive"
+if "active" in state:
+    print("healthy")
 ```
 
-**Discuss or try:** If this passes, have we proved double always works?
+Discuss or try: Predict the output. Is membership the intended comparison?
 
----
+## Slide 4: A claim about repetition
 
-## Slide 5: Reading a failure
+```text
+attempt = 0
+while attempt < 3:
+    print("Checking again")
+```
 
-Expected: 0
-Actual: 1
-Smallest input: an empty list
+Discuss or try: Trace four imagined passes without running this draft.
 
-**Discuss or try:** Which hypothesis could explain the extra one?
+## Slide 5: Repeated external work
 
----
+```text
+for unit in services:
+    print(unit, read_state(unit), read_state(unit))
+```
 
-## Slide 6: Cases worth checking
+Discuss or try: For two services, how many child commands could this start?
 
-| Category | Example |
+## Slide 6: One observation reused
+
+```text
+for unit in services:
+    state = read_state(unit)
+    print(unit, state, state)
+```
+
+Discuss or try: What behavior must your test preserve?
+
+## Slide 7: Efficiency evidence
+
+| Version | Queries for two services |
 | --- | --- |
-| Boundary | No tasks |
-| Invalid input | Unknown ID |
-| Persistence | Save, restart, load |
-| Regression | A previously failing input |
+| Repeated-read draft | 4 |
+| Reuse one result | 2 |
 
-**Discuss or try:** Which case can expose a defect that a normal example misses?
+Discuss or try: Why is a shorter source file weak evidence of improvement?
 
----
+## Slide 8: Useful counterexamples
 
-## Slide 7: A debugging record
+Inactive contains the letters active.
+An empty list makes zero passes.
+A timeout gives no reliable service state.
 
-Exact command and input.
-Expected and actual result.
-Hypothesis, change, and retest.
+Discuss or try: Which test can disprove the draft’s strongest claim?
 
-**Discuss or try:** Can your partner reproduce the problem from your notes?
+## Slide 9: Today’s investigation
 
----
+Review all three drafts.
+Test small repairs.
+Count unnecessary work before and after.
 
-## Slide 8: Lab: broken summary
+Discuss or try: Log one suggestion you accepted, edited, or rejected.
 
-Predict before execution.
-Find the smallest failure.
-Keep a regression case after the repair.
+## Slide 10: The review checkpoint
 
-**Discuss or try:** Add all-complete and none-complete cases.
+Approval includes a reason, evidence, and known limits.
 
----
+Discuss or try: What did your tests establish, and what remains uncertain?
 
-## Slide 9: Project checkpoint
-
-All supplied acceptance checks.
-Four original tests.
-The manual CLI checklist.
-
-**Discuss or try:** Check both core functions and the user’s menu flow.
-
----
-
-## Slide 10: Before you leave
-
-Tests make a claim repeatable. They cover the cases you chose.
-
-**Discuss or try:** Which bug would your newest test catch?
-
----
-
-Concept reference: https://docs.python.org/3.11/library/unittest.html#basic-example
+Concept references:
+https://docs.python.org/3/library/subprocess.html
+https://docs.python.org/3/library/unittest.html#basic-example

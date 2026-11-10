@@ -1,42 +1,38 @@
-# Day 5: Release and demonstration
+# Day 5: Explain and deliver reviewed work
 
-**Learning target:** Help a new user run the app from a clean copy and explain a technical decision with test evidence.
+Goal: **Help another person run the report and defend a review decision independently.**
 
-**You need:** your editor, Python, a writable project folder, and today's workbook page. The guided lab takes 50 minutes plus a 15-minute share-out. Project work takes a separate 180 minutes. Pairing is encouraged; change driver every 15 minutes.
+Vocabulary: reproducibility, technical review, evidence, limitations, contribution and portfolio writing.
 
-## Predict before running
+## Read first
 
-Your app runs on your laptop. What information does a reviewer need to reproduce it on a clean machine?
+Read these sections of the Python reading guide: Review the guide sections you cited in your memo. The guide is in `03 - Student Worksheets and Packet`. Today's example is `your copied serverbrief project`. Short examples are in this folder's examples subfolder. Keep the review workbook open for predictions, trace tables, and evidence.
 
-Write your prediction and the reason. Run a small experiment to check it.
+## Guided investigation
 
-## Guided lab: Conduct a clean-copy peer review
+1. Freeze a clean review copy with source, sample data, tests, README, and your memo. Exclude private logs, credentials, and real host details.
+2. Exchange copies. A reviewer follows the README without oral coaching for ten minutes and records the interpreter and commands.
+3. Run sample mode, inspect the source label, run tests, and evaluate one repair against its stated counterexample. Use the public project checklist.
+4. Return one specific strength and one reproducible issue or documentation improvement. The author records a repair and recheck or explains a limitation.
+5. Complete the post-assessment individually without AI or notes. Rehearse a three-minute demonstration with a partner.
+6. Explain a variable, a for loop, a while stopping condition, an import, and one command result in your own words. Submit a repository link or archive.
 
-1. Freeze a review copy of your project. Include source, tests, README, and fictional demonstration data only. Exclude tasks.json containing personal entries.
-2. Exchange copies. The reviewer follows the README without spoken help for ten minutes.
-3. Run the automated tests and the manual acceptance checklist. Record one reproducibility issue and one strength using specific evidence.
-4. Return feedback. Classify issues as must-fix, useful improvement, or future work.
-5. Repair must-fix issues, rerun relevant tests, and rehearse a three-minute demonstration.
-6. Complete the post-assessment individually before looking at group notes.
+Give a reason for each prediction. Run only the supplied working examples or your bounded repair. Compare expected and actual output. Partners switch driver/navigator roles every 15 minutes. The instructor guide schedules demonstrations, paired practice, discussion and this investigation across 180 guided minutes.
 
-## Project work
+## Project and independent work: 180 minutes
 
-Finalize your README and demonstration. Present add/list/complete, a restart showing persistence, and invalid-input handling. Explain one original test, one bug, and one limitation. Submit an archive or repository plus evidence. Finish your reflection and portfolio description.
+Finish the reviewed package, memo, test evidence, and three-minute demo. Explain one rejected suggestion, one efficiency improvement, and the difference between simulated and live observations. Credit the supplied scaffold and all assistance.
 
-Work in three 60-minute blocks: build the core milestone, test it with a peer, then improve and document it. Before adding an extension, demonstrate the required milestone to your instructor.
+Use 60 minutes to trace/review the assigned region, 60 minutes to test a small change or interpretation, and 45 minutes to document evidence. Use the final 15 minutes to save a snapshot and submit. On Day 5, reserve the last hour for demonstrations and submission instead. Small tested edits are expected; writing an application from an empty file is not required.
 
-## Checkpoint and submission
+## Submit and explain
 
-Submit clean-copy review, final source and tests, README, three-minute demo, post-assessment, and reflection. Include exact commands and inputs so someone else can repeat your result. A screenshot helps but does not replace your source files.
+Submit your workbook page, trace or annotated region, exact inputs/commands, and expected/actual evidence. Describe your contribution independently, even if paired. Record an approval decision as accept, edit, or reject with a reason. In sample mode say simulated.
 
-## Exit ticket
+Exit ticket: What evidence lets you approve the script? Which limitation should a future operator know?
 
-Which part can you explain confidently? Which claim about your project can you support with evidence?
+Support: Offer a seated or recorded demo. Use a cue card: purpose, trace, command result, repair/test, limitation. Assess understanding rather than typing or speaking speed.
 
-## Need a hint?
+Optional challenge: Propose one bounded next feature with a test plan, such as report summaries or CSV export. Keep live operations read-only.
 
-State the smallest input that fails. Locate the matching concept in the Python reference sheet. Write the expected result before asking for a code suggestion. Ask your instructor for a targeted hint if you remain stuck after ten minutes.
-
-## Extension
-
-Tag a versioned release and add a short architecture explanation or a command-line flag, with tests and updated setup instructions.
+[Back to Start Here](../START-HERE.md)

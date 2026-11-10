@@ -1,0 +1,23 @@
+[
+  {
+    "unit": "sshd.service",
+    "returncode": 0,
+    "stdout": "active\n",
+    "stderr": "",
+    "error": ""
+  },
+  {
+    "unit": "crond.service",
+    "returncode": 3,
+    "stdout": "inactive\n",
+    "stderr": "",
+    "error": ""
+  },
+  {
+    "unit": "httpd.service",
+    "returncode": 4,
+    "stdout": "",
+    "stderr": "Unit httpd.service could not be found.",
+    "error": ""
+  }
+]

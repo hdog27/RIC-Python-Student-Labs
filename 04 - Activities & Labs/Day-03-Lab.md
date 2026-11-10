@@ -1,42 +1,38 @@
-# Day 3: Saving data safely
+# Day 3: Imports and RHEL command scripts
 
-**Learning target:** Save and load task data, distinguish a missing file from malformed content, and preserve a bad file for recovery.
+Goal: **Explain how a Python process runs a read-only command and interprets its result.**
 
-**You need:** your editor, Python, a writable project folder, and today's workbook page. The guided lab takes 50 minutes plus a 15-minute share-out. Project work takes a separate 180 minutes. Pairing is encouraged; change driver every 15 minutes.
+Vocabulary: modules, import forms, def versus calls, return, subprocess, arguments, stdout, stderr, exit codes, exceptions.
 
-## Predict before running
+## Read first
 
-Your save file contains half a JSON object. Should loading it silently return an empty list? What could the next save destroy?
+Read these sections of the Python reading guide: Functions, arguments, return values, and side effects; Imports; Exceptions and external results. The guide is in `03 - Student Worksheets and Packet`. Today's example is `04_imports_and_functions.py`. Short examples are in this folder's examples subfolder. Keep the review workbook open for predictions, trace tables, and evidence.
 
-Write your prediction and the reason. Run a small experiment to check it.
+## Guided investigation
 
-## Guided lab: Investigate JSON files
+1. Read examples/04_imports_and_functions.py. Explain import json versus from pathlib import Path. Identify standard-library names, the function definition, its call, and the main guard.
+2. Predict what happens when the file runs as a script and when it is imported. Check the prediction in a scratch interpreter session. Imports do not install packages and can execute top-level initialization.
+3. Read RHEL-Commands-Inside-Python.md sections 1–2. Translate systemctl is-active sshd.service into a list of executable and arguments. Explain each run option before running anything.
+4. Compare the active, inactive, and missing-unit saved records. Trace stdout, stderr, and returncode separately. Distinguish a finished nonzero command from a TimeoutExpired exception.
+5. On an assigned RHEL VM, manually inspect whoami, df -h /, and the selected systemctl commands, then run --live. If no VM is available, use the provided sample and label the exercise simulated. Do not claim a live check.
+6. Review the bounded journalctl example with your instructor. Explain permissions and why empty visible logs cannot prove there were no events. Record the script-to-command-to-result chain.
 
-1. Create `day3_storage.py`. Import json and Path. Work with a scratch file in your own folder.
-2. Encode a short list of equipment dictionaries with `json.dumps(data, indent=2)` and write UTF-8 text. Read and decode it. Compare the loaded value with the original.
-3. Inspect the provided sample and malformed JSON fixtures. Before running anything, predict which will parse.
-4. Try a missing file. Catch FileNotFoundError specifically and choose an empty initial list for a new app.
-5. Try malformed JSON. Catch JSONDecodeError and report the problem. Keep the original bytes unchanged. Never treat this as a successful empty load.
-6. Try syntactically valid JSON with the wrong fields. Explain why successful parsing does not establish that it is valid task data.
+Give a reason for each prediction. Run only the supplied working examples or your bounded repair. Compare expected and actual output. Partners switch driver/navigator roles every 15 minutes. The instructor guide schedules demonstrations, paired practice, discussion and this investigation across 180 guided minutes.
 
-## Project work
+## Project and independent work: 180 minutes
 
-Implement `validate_tasks`, `load_tasks`, and `save_tasks` in tracker.py. Integrate them with the supplied app menu. Pass the public storage tests. Restart the app and verify saved tasks survive. Copy a corrupt fixture to a scratch tasks.json, run the app, and verify the bad file remains unchanged.
+Annotate imports and query_service. Create a command translation table and a report explaining source, command exit codes, and unknown results. Add a test for a documented command-error case using a fake runner. No system changes required.
 
-Work in three 60-minute blocks: build the core milestone, test it with a peer, then improve and document it. Before adding an extension, demonstrate the required milestone to your instructor.
+Use 60 minutes to trace/review the assigned region, 60 minutes to test a small change or interpretation, and 45 minutes to document evidence. Use the final 15 minutes to save a snapshot and submit. On Day 5, reserve the last hour for demonstrations and submission instead. Small tested edits are expected; writing an application from an empty file is not required.
 
-## Checkpoint and submission
+## Submit and explain
 
-Submit JSON round-trip, preserved malformed file, missing-file behavior, passing storage tests, and before/after restart evidence. Include exact commands and inputs so someone else can repeat your result. A screenshot helps but does not replace your source files.
+Submit your workbook page, trace or annotated region, exact inputs/commands, and expected/actual evidence. Describe your contribution independently, even if paired. Record an approval decision as accept, edit, or reject with a reason. In sample mode say simulated.
 
-## Exit ticket
+Exit ticket: Why does import not mean install? Can a nonzero exit code differ from a Python exception?
 
-What is the difference between JSON parsing and schema validation? Why should a failed load stop the app from saving?
+Support: Separate the Python process, child command, and returned record on paper. Give the command list first, then reveal one keyword option at a time.
 
-## Need a hint?
+Optional challenge: Explain why shell pipes and cd do not act like terminal syntax when passed as ordinary argument-list items.
 
-State the smallest input that fails. Locate the matching concept in the Python reference sheet. Write the expected result before asking for a code suggestion. Ask your instructor for a targeted hint if you remain stuck after ten minutes.
-
-## Extension
-
-Explain how the supplied temporary-file-and-replace save pattern reduces the chance of a partial target file. Multi-process editing remains out of scope.
+[Back to Start Here](../START-HERE.md)

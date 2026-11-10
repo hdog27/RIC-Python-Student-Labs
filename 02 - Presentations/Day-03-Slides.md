@@ -1,112 +1,102 @@
-# Day 3: Saving data safely
+# Day 3: Imports and RHEL Commands
 
-Student-readable slide transcript. Full lab instructions are in the matching daily lab.
+Slide transcript. Follow the matching lesson from Start Here.
 
-## Slide 1: Saving data safely
+## Slide 1: Imports and RHEL commands
 
 Day 3
-Tasks that survive a restart
+How a Python script uses existing tools
 
----
+## Slide 2: Imports make names available
 
-## Slide 2: Today’s build
-
-Load valid data at startup.
-Save after a change.
-Keep damaged data available for recovery.
-
-**Discuss or try:** What evidence proves that a restart worked?
-
----
-
-## Slide 3: The data journey
-
-1. Python task list
-2. JSON text file
-3. Validated task list
-
-**Discuss or try:** Which step can fail? What should the app preserve?
-
----
-
-## Slide 4: JSON and Python
-
-| Meaning | Python | JSON |
-| --- | --- | --- |
-| Boolean | False | false |
-| Collection | list | array |
-| Record | dict | object |
-
-**Discuss or try:** Does valid JSON always match our task contract?
-
----
-
-## Slide 5: A small round-trip
-
-```python
+```text
 import json
-
-original = {"read": False}
-text = json.dumps(original)
-restored = json.loads(text)
-print(restored == original)
+from pathlib import Path
+import subprocess
 ```
 
-**Discuss or try:** What is the type of text? What is the type of restored?
+Discuss or try: Which name do you use to call each library?
 
----
+## Slide 3: Definitions and calls
 
-## Slide 6: Different failures
+```text
+def label(name):
+    return f"Report for {name}"
 
-| Situation | Response |
+message = label("lab-web-01")
+print(message)
+```
+
+Discuss or try: When does the body execute? Where does the result go?
+
+## Slide 4: The terminal command
+
+```text
+systemctl is-active sshd.service
+```
+
+Discuss or try: What is the executable? Which parts are arguments?
+
+## Slide 5: The Python process call
+
+```text
+result = subprocess.run(
+    ["systemctl", "is-active", "sshd.service"],
+    capture_output=True,
+    text=True,
+    timeout=5,
+    check=False,
+)
+```
+
+Discuss or try: Explain one option before the instructor runs it.
+
+## Slide 6: The returned evidence
+
+| Field | What to inspect |
 | --- | --- |
-| File is missing | Start a new empty tracker |
-| JSON or schema is invalid | Report and preserve the file |
-| File access fails | Report the access problem |
+| stdout | Normal output, such as active |
+| stderr | Diagnostic text, possibly empty |
+| returncode | Command-specific completion status |
 
-**Discuss or try:** Why could an empty fallback cause data loss?
+Discuss or try: Can a nonzero status be an expected service-state result?
 
----
+## Slide 7: A report preserves uncertainty
 
-## Slide 7: A specific exception
+| Observed evidence | Classroom label |
+| --- | --- |
+| Code 0 and exact active | ok |
+| Nonzero and inactive or failed | attention |
+| Missing, conflicting, or uncertain | unknown |
 
-```python
-try:
-    minutes = int(input("Minutes: "))
-except ValueError:
-    print("Enter a whole number")
-```
+Discuss or try: Does active alone prove the application serves users?
 
-**Discuss or try:** Which error can this code handle? Which errors remain?
+## Slide 8: RHEL inspection tools
 
----
+| Question | Read-only command |
+| --- | --- |
+| Which account? | whoami |
+| Disk usage? | df -h / |
+| Service state? | systemctl is-active sshd.service |
+| Recent visible logs? | journalctl -u sshd.service -n 10 --no-pager |
 
-## Slide 8: Lab: JSON investigation
+Discuss or try: Why might the visible journal be incomplete?
 
-Round-trip a small record.
-Compare missing, malformed, and wrong-schema files.
-Keep the original bytes unchanged.
+## Slide 9: Today’s investigation
 
-**Discuss or try:** Use scratch copies of the supplied fixtures.
+Annotate imports and query_service.
+Translate one command into an argument list.
+Compare result fields and error paths.
 
----
+Discuss or try: Use simulated results or the assigned RHEL VM, and say which.
 
-## Slide 9: Project checkpoint
+## Slide 10: The review checkpoint
 
-validate_tasks
-load_tasks
-save_tasks
+You can explain what ran and what its result means.
 
-**Discuss or try:** Add a task, quit, restart, and verify the same data.
+Discuss or try: How is a command’s nonzero code different from a Python exception?
 
----
-
-## Slide 10: Before you leave
-
-Parsing checks syntax. Validation checks the data contract.
-
-**Discuss or try:** Why should a failed load prevent normal saving?
-
----
-
-Concept reference: https://docs.python.org/3.11/library/json.html
+Concept references:
+https://docs.python.org/3/tutorial/modules.html
+https://docs.python.org/3/library/subprocess.html
+https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/htmlsingle/configuring_basic_system_settings/index

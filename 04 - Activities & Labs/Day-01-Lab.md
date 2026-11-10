@@ -1,42 +1,38 @@
-# Day 1: First Python program
+# Day 1: Why Python, and how to read it
 
-**Learning target:** Collect a fictional task title and a positive estimated duration. Display a readable summary. Explain why input needs conversion.
+Goal: **Explain each value and predict a decision without rewriting the program.**
 
-**You need:** your editor, Python, a writable project folder, and today's workbook page. The guided lab takes 50 minutes plus a 15-minute share-out. Project work takes a separate 180 minutes. Pairing is encouraged; change driver every 15 minutes.
+Vocabulary: variables, assignment, strings, integers, booleans, comparisons, indentation.
 
-## Predict before running
+## Read first
 
-What does `print("3" + "4")` display? What changes if both values pass through `int()`?
+Read these sections of the Python reading guide: Variables, assignment, and types; Decisions, blocks, and indentation. The guide is in `03 - Student Worksheets and Packet`. Today's example is `01_variables.py`. Short examples are in this folder's examples subfolder. Keep the review workbook open for predictions, trace tables, and evidence.
 
-Write your prediction and the reason. Run a small experiment to check it.
+## Guided investigation
 
-## Guided lab: Build a session estimator
+1. Before any code: name a Linux admin task that repeats. Compare one manual service check with a report for several services. State why an operator needs to review an AI draft.
+2. Open examples/01_variables.py. Do not run it yet. Mark variable names, literal values, operators, and calls. Build a table with name, type, and current value.
+3. Predict every output. Run the example, compare, then change only used_percent to 79, 80, and 81. Explain the exact boundary.
+4. Read a five-line if/else in the reading guide. Mark which lines belong to which block. Explain how moving a print outside the block changes behavior.
+5. Run the supplied serverbrief.py in sample mode. Locate classify and trace one saved command result through it. Keep unfamiliar imports marked as questions for Day 3.
+6. Write a plain-language explanation for a partner. Your partner should be able to predict a different input from your explanation.
 
-1. Create `day1_estimator.py`. Ask for a fictional activity and minutes per session.
-2. Predict the type of both input values. Print their types once to check your prediction.
-3. Convert minutes to an integer. Compute the minutes for three sessions.
-4. Use an if/else decision to show a useful message when minutes is positive or non-positive. For today, assume numeric input. Record what happens for letters so Day 3 can fix it.
-5. Test 12, 1, 0, and -3. Write predicted and actual results. Explain why "12" and 12 behave differently.
-6. Ask a partner to try it. Improve one prompt based on their feedback.
+Give a reason for each prediction. Run only the supplied working examples or your bounded repair. Compare expected and actual output. Partners switch driver/navigator roles every 15 minutes. The instructor guide schedules demonstrations, paired practice, discussion and this investigation across 180 guided minutes.
 
-## Project work
+## Project and independent work: 180 minutes
 
-Write a user story for TaskTrack. In `day1_prototype.py`, ask for a title, reject whitespace-only titles using `.strip()`, and print a task summary. Sketch add/list/complete/quit on paper. Do not build persistence yet.
+Annotate the classify function with inputs, branches, returns, and the reporting policy. Trace active, inactive, and unknown fixture records. Write the user need for your final report. Save baseline test output.
 
-Work in three 60-minute blocks: build the core milestone, test it with a peer, then improve and document it. Before adding an extension, demonstrate the required milestone to your instructor.
+Use 60 minutes to trace/review the assigned region, 60 minutes to test a small change or interpretation, and 45 minutes to document evidence. Use the final 15 minutes to save a snapshot and submit. On Day 5, reserve the last hour for demonstrations and submission instead. Small tested edits are expected; writing an application from an empty file is not required.
 
-## Checkpoint and submission
+## Submit and explain
 
-Submit estimator code, four numeric test cases, a recorded non-numeric failure, a task-entry prototype, and a user story. Include exact commands and inputs so someone else can repeat your result. A screenshot helps but does not replace your source files.
+Submit your workbook page, trace or annotated region, exact inputs/commands, and expected/actual evidence. Describe your contribution independently, even if paired. Record an approval decision as accept, edit, or reject with a reason. In sample mode say simulated.
 
-## Exit ticket
+Exit ticket: What changes when 84 becomes "84"? Which lines execute when an if condition is false?
 
-Explain the difference between assignment and comparison. Why can input("Minutes: ") not be added directly to 5?
+Support: Use color or column labels for names, values and operators. Trace two lines at a time. No syntax memorization quiz.
 
-## Need a hint?
+Optional challenge: Explain why active service state alone cannot prove the application works for users.
 
-State the smallest input that fails. Locate the matching concept in the Python reference sheet. Write the expected result before asking for a code suggestion. Ask your instructor for a targeted hint if you remain stuck after ten minutes.
-
-## Extension
-
-Add a configurable session count and a second boundary check. Explain the behavior for zero sessions.
+[Back to Start Here](../START-HERE.md)

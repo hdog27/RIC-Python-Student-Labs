@@ -1,89 +1,52 @@
-# Final project: TaskTrack
+# Final project: review and explain ServerBrief
 
-Build a command-line application for a student, club member, or volunteer who needs to track tasks. Choose a specific fictional user. The core application works offline using Python's standard library.
+You are reviewing a small automation helper for a fictional Linux administrator. Begin with the supplied, runnable serverbrief folder. Your job is to understand its behavior, evaluate draft suggestions, test small changes, and prepare a report another person can trust within its stated limits.
 
-## Required behavior
+## Deliverables
 
-1. Add a task with a trimmed, non-empty title. Allow duplicate titles. Assign a unique positive integer ID greater than the current maximum ID, or 1 for an empty list.
-2. List all tasks or only open tasks. Show each task's stable ID, title, and open/done status. Give a useful message when no tasks match.
-3. Complete a task by ID. An unknown or invalid ID produces a clear error. Completing an already completed task is harmless and leaves it complete.
-4. Save the list as UTF-8 JSON beside app.py. Load it on the next run. A missing file means a new empty tracker.
-5. Reject malformed JSON and invalid task data without overwriting the original file. On load failure, exit with a useful error before permitting any save. A missing file and an invalid file are different conditions.
-6. Recover from invalid menu choices, blank titles, and non-numeric completion input. Report file access failures clearly. A failed save must not claim success.
-7. Keep core logic in functions that tests can call without prompts. The supplied menu code is a scaffold you may adapt.
+1. A copy of the supplied app, sample JSON, tests, and a README. Source credit must identify the course scaffold. An unchanged baseline app is acceptable if your required repairs and efficiency comparison are in separate scratch modules with tests.
+2. An annotated walkthrough: explain variables/types, an if branch, a for loop, a bounded while loop, function calls/returns, imports, the main guard, and subprocess options. A separate bounded while example is expected; do not add an unnecessary while loop to the app.
+3. A review memo for all three AI review cases. State purpose, actual behavior, a counterexample/risk, accept/edit/reject decision, and a justified repair or rejection. Include a repaired copy of the state-comparison and bounded-loop exercises.
+4. An efficiency comparison using a fake service query. Show calls before and after removing a repeated query. For two unique services, the draft makes four calls and the revised approach should make two while preserving intended output for fixed fake results. Explain why fewer external calls matter. No unsupported claim about universal runtime speed is required.
+5. All 14 supplied tests plus at least three original tests: a counterexample/boundary, an error path, and a behavior/operation-count check for your change. Test repairs independently. Real servers are not needed for tests.
+6. A saved JSON report clearly labeled simulated or live, a clean-copy peer review, the workbook/reflection, and a three-minute demonstration. A live RHEL observation is optional if the instructor cannot provide a suitable VM.
 
-## Data contract
+## Reporting contract
 
-The root is a list of dictionaries. Each dictionary has **exactly** these fields:
+Default mode loads the fictional sample beside serverbrief.py. Live mode runs locally on the assigned Linux VM and queries only configured allowlisted services. It performs no administrative changes. Classification: exact active plus returncode 0 and no command exception gives ok. Exact inactive/failed plus nonzero returncode and no command exception gives attention. Missing/contradictory evidence, timeout, missing executable, and unrecognized state give unknown. These are classroom policies, not a comprehensive health assessment.
 
-```json
-{"id": 7, "title": "Practice presentation", "done": false}
-```
+Retain source, each unit's state, returncode, stderr, and error. Do not relabel simulated observations as live. The script's own exit 0 means it created a report, not that every service is healthy. A new --output path creates JSON; an existing file must remain unchanged. Explain this local file-writing side effect.
 
-`id` is a positive integer, excluding booleans. IDs are unique within the list. `title` is a string with at least one non-whitespace character. `done` is a true boolean, never a string such as "yes". Reject extra/missing fields. The loader validates existing records without rewriting titles. New task titles are trimmed by add_task. Use `type(value) is int` when validating IDs because Python booleans are also instances of int.
+## Acceptance checklist
 
-## Required functions in tracker.py
-
-| Function | Contract |
-| --- | --- |
-| `validate_tasks(tasks)` | Return None for valid data, otherwise raise ValueError |
-| `add_task(tasks, title)` | Validate input. Append a new dictionary to tasks and return the new dictionary. Invalid title: ValueError, list unchanged |
-| `list_tasks(tasks, only_open=False)` | Return a new list containing matching task dictionaries in input order. Do not change tasks. A shallow list copy is sufficient |
-| `complete_task(tasks, task_id)` | Mark matching task done and return that dictionary. Invalid/unknown ID: ValueError, list unchanged |
-| `load_tasks(path)` | Return validated tasks. Missing file: []. Invalid JSON/schema/UTF-8: ValueError. Other file access problems: OSError |
-| `save_tasks(path, tasks)` | Validate, save using UTF-8 JSON, return None. Invalid data: ValueError. File access problem: OSError. Preserve an existing target if writing the temporary file fails |
-
-`path` accepts pathlib.Path or a path string. Parent folder must already exist. Write a sibling temporary file, then replace the target after successful writing. Assume one running app per data file; concurrency, encryption, and account management are outside this unit. Core functions may assume valid task collections after the loader validates them, except validate_tasks and save_tasks must validate all stored records.
-
-## Milestones
-
-| Day | Acceptance checkpoint |
-| --- | --- |
-| 1 | A user story, menu sketch, and title-entry prototype |
-| 2 | Add/list/complete in memory, including stable IDs |
-| 3 | Save/load, restart evidence, and invalid-file preservation |
-| 4 | Full menu, supplied tests, four original tests, debugging log |
-| 5 | Clean-copy review, final fixes, README and demonstration |
-
-## Manual acceptance checklist
-
-Use a fresh writable copy with fictional data. Record inputs and actual outputs.
-
-- [ ] Launch without tasks.json. List tasks. See a clear empty message.
-- [ ] Add `Read a chapter` and `Practice presentation`. Verify different IDs and open status.
-- [ ] Mark the second ID complete. All view shows it done. Open-only view excludes it.
-- [ ] Quit and restart. Titles, IDs, and completion state survive.
-- [ ] Enter an invalid menu choice, a blank title, letters for an ID, and an unknown ID. Get useful feedback without a crash or false success.
-- [ ] Complete an already completed task again. It stays complete.
-- [ ] Replace only a scratch copy's save file with malformed JSON. Launch. Confirm a useful error, a nonzero exit, and identical original bytes afterward.
-- [ ] Try a valid JSON document with wrong fields or duplicate IDs. Confirm rejection and preservation.
-- [ ] Run all automated tests. Add four original tests covering an edge case, invalid input, persistence, and a bug or extension.
-- [ ] Ask someone to launch a clean copy from your README without spoken help.
+- [ ] A new reader can run sample mode and all tests from the README.
+- [ ] Sample output contains source simulated and ok/attention/unknown records.
+- [ ] Your walkthrough correctly predicts new inputs and loop termination.
+- [ ] You explain each import and identify any external process or file write.
+- [ ] State-comparison repair rejects the inactive substring trap.
+- [ ] Bounded-loop repair stops and handles zero iterations deliberately.
+- [ ] Efficiency evidence counts calls and checks equivalent intended results.
+- [ ] Three original tests exercise distinct cases and pass.
+- [ ] Missing commands/timeouts remain unknown; no automatic restarts or sudo escalation.
+- [ ] Existing report files survive an attempted overwrite.
+- [ ] Review memo credits sources/assistance and states limitations.
 
 ## Rubric: 100 points
 
-Each row has four anchors. Award the listed value that best matches the evidence. Partial credit is deliberate and specific. Cosmetic polish does not replace correctness.
+| Criterion | Full evidence | Partial evidence | Minimal/absent |
+| --- | --- | --- | --- |
+| Code reading and explanation, 35 | 35: accurate walkthrough of all listed constructs and independent trace of a new case | 25: mostly accurate, one major gap; 15: several gaps | 5: reads syntax without explaining behavior; 0: absent |
+| Review decisions and repairs, 25 | 25: all three cases, concrete counterexamples, justified repairs/rejection | 18: two sound cases; 10: one sound case | 4: unsupported approval; 0: absent |
+| Tests and evidence, 15 | 15: baseline plus three distinct original passing tests and exact reproduction | 11: incomplete original coverage; 6: manual evidence only | 0: no repeatable evidence |
+| Efficiency reasoning, 10 | 10: counts 4 versus 2 queries, checks behavior, explains tradeoff | 7: correct count with weak equivalence check; 4: plausible idea only | 0: unsupported or absent |
+| Report, README, demo and attribution, 15 | 15: clean-copy success, honest source label/limits, independent explanation and credits | 11: one missing element; 6: several gaps | 0: unusable or absent |
 
-| Criterion | Complete | Mostly complete | Partial | Not evidenced |
-| --- | --- | --- | --- | --- |
-| Core add/list/complete, 25 | 25: all required flows, stable IDs and open filter work | 19: one flow has a reproducible defect | 10: only one or two flows work | 0: no running core |
-| Persistence and data protection, 20 | 20: restart works and both invalid JSON and schema preserve original bytes | 15: restart works, one error condition fails | 8: saves or loads but round-trip unreliable | 0: no persistence |
-| Validation and errors, 15 | 15: blank/menu/ID/file errors handled clearly | 11: one category fails | 6: several errors crash or mislead | 0: no handling shown |
-| Tests and debugging evidence, 15 | 15: supplied suite plus four meaningful original tests and a reproduced bug/repair | 11: suite passes, fewer original tests or weak log | 6: some repeatable testing | 0: no test evidence |
-| Code clarity and explanation, 10 | 10: functions, readable names and independent explanation | 7: understandable with minor coupling | 4: difficult to follow or explain | 0: cannot explain submitted work |
-| README and reproducibility, 10 | 10: clean-copy reviewer runs app and tests from instructions | 7: one missing detail | 4: several undocumented steps | 0: no usable instructions |
-| Demo, reflection and attribution, 5 | 5: demonstrates core, explains limitation and credits help | 4: one element missing | 2: minimal demonstration | 0: absent |
+Choose the listed level that best fits observed evidence. Scoring emphasizes understanding and judgment. Typing speed, lines of code, public GitHub participation, or memorized library details do not earn points. Equivalent repairs and plain loops are welcome.
 
-Optional extensions support learning but earn no automatic bonus. Examples: title search, CSV export, task categories, or priority. Finish and test the required core first. Extensions may add fields only if you update validation, tests, and documentation and preserve an importable core compatible with the supplied contracts for grading.
+## AI assistance and portfolio language
 
-## Submission
+AI assistance is optional. Make a prediction and first review before seeking help. Record what you accepted, edited, or rejected and how you tested it. You are accountable for approved behavior. Assessments remain individual without AI. Do not share real logs, credentials, or private system data.
 
-Submit source, tests, README, manual-check evidence, debugging log, and a three-minute demo or equivalent recorded explanation. Include your workbook and reflection. Use a repository link **or an archive**. A public GitHub profile is optional. For a team of two, name each contribution and have each person explain a function and test.
+Example portfolio statement, edit to match your work: "Reviewed a Python Linux service-reporting script, traced loops and subprocess results, repaired faulty draft logic, and tested a reduction in repeated command calls. Documented report limitations and reproducible sample execution."
 
-AI policy: make your own prediction and first attempt before asking for assistance. You may use AI for explanations or small debugging hints when the instructor permits it. Record the tool, prompt purpose, and what you accepted or rejected in your README. Verify every adopted change with tests. You must be able to explain submitted code. Assessments are individual without AI.
-
-## Portfolio language
-
-Suggested description, edit to match your actual work: "Built a Python command-line task tracker with JSON persistence, input validation, and automated tests. Documented setup and demonstrated recovery from malformed save data."
-
-State specific features and your contribution. Do not claim professional experience, certification, production deployment, or security guarantees from this classroom project. Include a fictional-data screenshot or short demo and working setup instructions.
+Submit a repository link or archive. Team members name their individual contributions and each explain a function, loop and test. Use fictional data for public demonstration media.

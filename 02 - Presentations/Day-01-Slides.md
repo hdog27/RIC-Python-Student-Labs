@@ -1,111 +1,100 @@
-# Day 1: First Python program
+# Day 1: Why Python and Reading Code
 
-Student-readable slide transcript. Full lab instructions are in the matching daily lab.
+Slide transcript. Follow the matching lesson from Start Here.
 
-## Slide 1: Your first Python program
+## Slide 1: Python in Linux admin work
 
 Day 1
-TaskTrack: a five-day Python project
+Reading, reviewing, and explaining code
 
----
+## Slide 2: Where Python helps
 
-## Slide 2: Today’s build
-
-A program that collects input and makes a decision.
-
-By the end: a task-entry prototype and a user story.
-
-**Discuss or try:** Who would use your tracker?
-
----
-
-## Slide 3: Predict the output
-
-```python
-print("3" + "4")
-print(3 + 4)
-```
-
-**Discuss or try:** What changes when the quotes disappear?
-
----
-
-## Slide 4: Names and values
-
-```python
-minutes = 12
-sessions = 3
-total = minutes * sessions
-print(total)
-```
-
-**Discuss or try:** Which line changes a value? Which line displays it?
-
----
-
-## Slide 5: Input and types
-
-| Expression | Kind of value |
+| Role or task | Useful script behavior |
 | --- | --- |
-| input("Minutes: ") | str |
-| int("12") | int |
-| 12 > 0 | bool |
+| Linux administration | Summarize service checks |
+| Support and operations | Collect evidence for a ticket |
+| Infrastructure automation | Apply consistent checks |
 
-**Discuss or try:** Which operation needs numeric input?
+Discuss or try: Which repetitive task would you want to review or automate?
 
----
+## Slide 3: Reviewing an AI draft
 
-## Slide 6: A decision in code
+The author proposes behavior.
+The reviewer checks intent and assumptions.
+Tests supply evidence for a decision.
 
-```python
-minutes = int(input("Minutes: "))
-if minutes > 0:
-    print("Ready to plan")
+Discuss or try: What would you need to know before approving a script?
+
+## Slide 4: Variables and values
+
+```text
+server = "lab-web-01"
+used_percent = 84
+warning_at = 80
+needs_review = used_percent >= warning_at
+```
+
+Discuss or try: Name each variable, its type, and its current value.
+
+## Slide 5: Assignment and comparison
+
+| Python | What it does |
+| --- | --- |
+| used = 84 | Assign a value |
+| used == 84 | Compare for equality |
+| used >= 80 | Compare with a threshold |
+| "84" | Text, rather than a number |
+
+Discuss or try: What changes if the input is text?
+
+## Slide 6: Decisions and indentation
+
+```text
+if used_percent >= warning_at:
+    print("Review disk usage")
 else:
-    print("Choose a positive value")
+    print("Below this threshold")
+print("Check finished")
 ```
 
-**Discuss or try:** Try 12, 0, and -3. Predict each branch first.
+Discuss or try: Which print belongs to a branch? Which always runs afterward?
 
----
+## Slide 7: A service-report record
 
-## Slide 7: An experiment that fails
-
-```python
-minutes = input("Minutes: ")
-print(minutes + 5)
+```text
+result = {
+    "unit": "sshd.service",
+    "returncode": 0,
+    "stdout": "active",
+    "stderr": "",
+    "error": ""
+}
 ```
 
-**Discuss or try:** State the types. What did the programmer intend?
+Discuss or try: What can you infer? What would still need checking?
 
----
+## Slide 8: Reading before running
 
-## Slide 8: Lab: session estimator
+Purpose and inputs.
+Next line, branch, and return.
+Actions outside the program.
 
-Ask for an activity and minutes.
-Calculate three sessions.
-Handle zero and negative durations.
+Discuss or try: Which facts can you trace, and which need documentation?
 
-**Discuss or try:** Record predicted and actual results for four inputs.
+## Slide 9: Today’s investigation
 
----
+Trace the variable example.
+Test one below, at, and above a threshold.
+Annotate a short region of the supplied app.
 
-## Slide 9: Project checkpoint
+Discuss or try: Follow Day 1 from Start Here and save the baseline tests.
 
-A fictional user and a clear need.
-A title-entry prototype.
-A sketch of add, list, complete, and quit.
+## Slide 10: The review checkpoint
 
-**Discuss or try:** Show your prototype to a partner before extending it.
+You can explain a value and predict a branch.
 
----
+Discuss or try: What evidence would change your decision about this script?
 
-## Slide 10: Before you leave
-
-You can read input, convert a value, and choose a branch.
-
-**Discuss or try:** Why does input need conversion before numeric addition?
-
----
-
-Concept reference: https://docs.python.org/3.11/tutorial/introduction.html
+Concept references:
+https://docs.python.org/3/tutorial/introduction.html
+https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/htmlsingle/configuring_basic_system_settings/index

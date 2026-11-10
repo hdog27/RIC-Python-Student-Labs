@@ -1,111 +1,96 @@
-# Day 2: Data and functions
+# Day 2: For and While Loops
 
-Student-readable slide transcript. Full lab instructions are in the matching daily lab.
+Slide transcript. Follow the matching lesson from Start Here.
 
-## Slide 1: Data and functions
+## Slide 1: For and while loops
 
 Day 2
-A tracker with several tasks
+What repeats, and what makes it stop?
 
----
+## Slide 2: A list of services
 
-## Slide 2: Today’s build
+```text
+services = [
+    "sshd.service",
+    "crond.service",
+    "httpd.service",
+]
+print(services[0])
+```
 
-A list of task records.
-Functions that add, list, and complete tasks.
+Discuss or try: What is the first position? What if the list is empty?
 
-**Discuss or try:** What information belongs in one task record?
+## Slide 3: For: one pass per item
 
----
+```text
+for service in services:
+    print(service)
+print("Finished")
+```
 
-## Slide 3: ID and position
+Discuss or try: Mark the repeated block and the first line after it.
 
-| List position | Stable ID | Title |
+## Slide 4: A for-loop trace
+
+| Pass | service value | Body executions so far |
 | --- | --- | --- |
-| 0 | 1 | Read |
-| 1 | 7 | Practice |
+| 1 | sshd.service | 1 |
+| 2 | crond.service | 2 |
+| 3 | httpd.service | 3 |
 
-**Discuss or try:** Which task does tasks[1] select? Which ID does it have?
+Discuss or try: Which value changes each pass? Does the list change here?
 
----
+## Slide 5: While: check before each pass
 
-## Slide 4: One record
-
-```python
-task = {
-    "id": 7,
-    "title": "Practice",
-    "done": False
-}
-print(task["title"])
+```text
+attempt = 0
+while attempt < 3:
+    print(attempt)
+    attempt = attempt + 1
 ```
 
-**Discuss or try:** What would task["done"] return?
+Discuss or try: Trace the condition, body, and update in that order.
 
----
+## Slide 6: The stopping argument
 
-## Slide 5: A loop over records
+| Before condition | attempt < 3 | Next action |
+| --- | --- | --- |
+| 0 | True | Print, then update |
+| 1 | True | Print, then update |
+| 2 | True | Print, then update |
+| 3 | False | Leave the loop |
 
-```python
-books = [{"pages": 12}, {"pages": 8}]
-for book in books:
-    print(book["pages"])
-```
+Discuss or try: What if the update disappears?
 
-**Discuss or try:** Trace the loop once per dictionary.
+## Slide 7: Break and continue
 
----
+break leaves the nearest loop.
+continue skips to the next pass.
+A skipped counter update can prevent progress.
 
-## Slide 6: A returned result
+Discuss or try: Where must the update occur in a bounded while loop?
 
-```python
-def double(number):
-    return number * 2
+## Slide 8: Loops in the supplied app
 
-answer = double(6)
-print(answer)
-```
+main queries each configured service.
+build_report turns each result into one row.
 
-**Discuss or try:** How would the caller use a printed value instead?
+Discuss or try: Count queries and report rows separately.
 
----
+## Slide 9: Today’s investigation
 
-## Slide 7: Function contracts
+Trace zero, one, and three passes.
+Repair the bounded-loop draft.
+Explain which loop fits a known list.
 
-Inputs: what the caller supplies.
-Result: what the function returns.
-Side effects: what it changes.
+Discuss or try: Use the Day 2 lesson and workbook trace table.
 
-**Discuss or try:** Describe a contract before writing its implementation.
+## Slide 10: The review checkpoint
 
----
+You can identify repetition and justify termination.
 
-## Slide 8: Lab: equipment checkout
+Discuss or try: What value changes so your while loop can stop?
 
-Model equipment as records.
-Return available names.
-Check out an item by stable ID.
-
-**Discuss or try:** Test IDs 1, 7, and 99. Include an empty list.
-
----
-
-## Slide 9: Project checkpoint
-
-add_task
-list_tasks
-complete_task
-
-**Discuss or try:** Demonstrate in-memory behavior using IDs with a gap.
-
----
-
-## Slide 10: Before you leave
-
-A function can return a value and change existing data.
-
-**Discuss or try:** Why should task IDs survive a change in list position?
-
----
-
-Concept reference: https://docs.python.org/3.11/tutorial/datastructures.html
+Concept references:
+https://docs.python.org/3/tutorial/controlflow.html
+https://docs.python.org/3/tutorial/introduction.html

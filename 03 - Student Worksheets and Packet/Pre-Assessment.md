@@ -1,16 +1,25 @@
 # Pre-assessment
 
-15 minutes, individual, no notes or AI. This is a baseline, not a grade. If you are unsure, explain your reasoning. Total: 20 points, two per question.
+15 minutes, individual, no notes or AI. Two points per item, 20 total. Explain reasoning. The pre-assessment guides support; it is not an entry requirement.
 
-1. Predict `print("2" + "5")`. Explain the value's type.
-2. In `count = 3`, what does `=` do? How would you compare count with 3?
-3. What type does `input()` return? Describe how to obtain a whole number from numeric input.
-4. Predict the output of `for n in [1, 3]: print(n * 2)` in order.
-5. A task is `{"id": 7, "title": "Read", "done": False}`. How would you read its title?
-6. A function prints 8 but has no return statement. What value does the caller receive?
-7. Why might tasks disappear when a program closes? Describe one way to keep them.
-8. A task with ID 7 is first in a list. Explain the difference between its ID and its index.
-9. A program loads a damaged save file. Explain why silently replacing it with an empty list could be harmful.
-10. A function should reject blank titles. Describe one test input and its expected outcome.
+1. Given `used = 84; limit = 80`, explain the role of each name and the value/type of `used >= limit`.
 
-Confidence, 1–5: writing code ___ reading errors ___ explaining code ___
+2. How do `=` and `==` differ? What type does `input()` return?
+
+3. Trace `for name in ["a", "b"]: print(name)`. What changes with an empty list?
+
+4. Trace a while loop starting n at 0, checking n < 2, printing n, then adding 1. What stops it?
+
+5. A while loop never updates a value used in its condition. Explain a possible problem and one bounded repair.
+
+6. Explain `import json` versus `from pathlib import Path`. Do they install packages?
+
+7. What is the difference between defining a function and calling it? How does return differ from print?
+
+8. Translate `systemctl is-active sshd.service` into an argument list. What do stdout and returncode represent?
+
+9. Can a finished command return nonzero without raising a Python exception? What extra evidence would you inspect?
+
+10. A draft checks `"active" in state` and calls the same service query twice. Give one counterexample and one efficiency check.
+
+Confidence (1–5): reading code ___ tracing loops ___ reviewing commands ___
